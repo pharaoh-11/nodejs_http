@@ -9,6 +9,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "quotes": ["error", "single"],
         "no-console": "off",
         "max-len": ["warn", { "code": 80 }],
         "semi": "warn"
