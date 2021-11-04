@@ -1,9 +1,15 @@
 function home() {
-  return 'hello world';
+  return {
+    code: 200,
+    message: 'hello world',
+  };
 }
 
 function notFound() {
-  return 'page not found';
+  return {
+    code: 404,
+    message: 'page not found',
+  };
 }
 
 module.exports = {

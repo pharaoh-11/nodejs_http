@@ -8,8 +8,6 @@ module.exports = (req, res) => {
 
   const { pathname, searchParams } = new URL(url, `https://${host}`);
 
-  const params = new URLSearchParams(searchParams);
-
   let body = [];
 
   req
@@ -21,6 +19,6 @@ module.exports = (req, res) => {
     })
     .on('end', () => {
       body = Buffer.concat(body).toString();
-      routes({ ...req, pathname, body, params }, res);
+      routes({ ...req, pathname, body, params: searchParams }, res);
     });
 };
