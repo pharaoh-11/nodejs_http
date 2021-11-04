@@ -1,6 +1,6 @@
 const http = require('http');
 
-const requestHandler = require('./src/requestHandler');
+const requestHandler = require('./server/requestHandler');
 
 const PORT = 3000;
 

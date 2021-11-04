@@ -1,6 +1,15 @@
 const routes = require('./routes');
 
 module.exports = (req, res) => {
+  const {
+    url,
+    headers: { host },
+  } = req;
+
+  const { pathname, searchParams } = new URL(url, `https://${host}`);
+
+  const params = new URLSearchParams(searchParams);
+
   let body = [];
 
   req
@@ -12,6 +21,6 @@ module.exports = (req, res) => {
     })
     .on('end', () => {
       body = Buffer.concat(body).toString();
-      routes({ ...req, body }, res);
+      routes({ ...req, pathname, body, params }, res);
     });
 };
