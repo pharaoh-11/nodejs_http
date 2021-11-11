@@ -1,13 +1,13 @@
-const { callback, promise } = require('./asyncModules');
+const fetch = require('./fetch');
 
-// callback('/posts', (err, res) => {
-//   if (err) console.error(err);
+const path = {
+  posts: () => '/posts',
+  post: (id) => `/post/${id}`,
+  comments: (userId) => `/comments?userId=${userId}`,
+};
 
-//   console.log(res);
-// });
+fetch(path, (err, res) => {
+  if (err) console.error(err);
 
-// promise('/posts')
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch((err) => console.err(err));
+  console.log(res);
+});
